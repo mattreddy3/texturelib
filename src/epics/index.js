@@ -3,13 +3,14 @@ import {combineEpics} from 'redux-observable';
 import {FETCH_TEXTURES} from '../actions/constants';
 import {texturesLoading, texturesLoaded, texturesLoadingFailed} from '../actions';
 
-const lambdaBaseURI = 'www.google.com/';
+const widgets = `localhost:3001/api/widgets`;
+const query = (term) => `${widgets}/${encodeURIComponent(term)}`;
 
 export function texturesEpic(action$, store, {ajax}){
     return action$.ofType(FETCH_TEXTURES)
       .switchMap(({payload}) => {
         const loading = Observable.of(texturesLoading(true));
-        const request = ajax.getJSON(lambdaBaseURI+"Employee")
+        const request = ajax.getJSON(query(payload))
           .filter(x => 
             {
               return x!==null

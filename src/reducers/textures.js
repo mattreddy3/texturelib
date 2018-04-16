@@ -54,8 +54,13 @@ import {
           currentTexture: initialCurrentTexture
         };
       case FETCH_TEXTURES:
+        let list = action.payload
+        if(typeof action.payload === "object"){
+          list = [action.payload]
+        }
         return {
           ...state,
+          list: list
         };
       case DELETE_TEXTURE:
         return {

@@ -28,7 +28,7 @@ class Content extends Component{
         this.state = initialState
     }
     componentWillMount = ( ) => {
-        // fetch
+        //TODO: add call for textures using this.props.fetchTextrures()
     }
     changeContext = (selectedContext) => {
         if(selectedContext){

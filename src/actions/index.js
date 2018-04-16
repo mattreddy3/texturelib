@@ -1,8 +1,15 @@
 import {FETCH_TEXTURES, TEXTURES_LOADING, TEXTURES_LOADED, TEXTURES_LOADING_FAILED} from './constants';
 // ACTION CREATORS
 
-export function fetchTextures(){
-    return {type:FETCH_TEXTURES}
+/**
+ * 
+ * @param {number} id 
+ */
+export function fetchTextures(id){
+    return {
+        type:FETCH_TEXTURES,
+        payload:id 
+    }
 }
 
 export function texturesLoading(loading){
