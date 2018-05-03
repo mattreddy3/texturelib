@@ -23,10 +23,7 @@ const contextList = [
 ]
 
 class Content extends Component{
-    constructor(props){
-        super(props)
-        this.state = initialState
-    }
+    state = initialState
     componentWillMount = ( ) => {
         //TODO: add call for textures using this.props.fetchTextrures()
     }
@@ -64,9 +61,9 @@ const mapState = (state) => {
         textures
     }
   }
-  
+
 const mapDispatch = (dispatch) => {
     return bindActionCreators(actionCreators, dispatch)
 }
-  
+
 export default connect(mapState, mapDispatch)(Content)
